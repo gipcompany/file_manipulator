@@ -1,8 +1,8 @@
 # FileManipulator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/file_manipulator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 TODO: Delete this and the text above, and describe your gem
+
+`FileManipulator` can split a text formatted file and merge them to one file (merge is TODO now).
 
 ## Installation
 
@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+irb(main):001:0> require 'file_manipulator'
+=> true
+irb(main):002:0> FileManipulator.split('Gemfile', 'tmp', 1)
+=> nil
+irb(main):003:0> Dir.entries('tmp')
+=> [".", "..", "Gemfile_0000", "Gemfile_0001", "Gemfile_0002", "Gemfile_0003"]
+```
 
 ## Development
 
@@ -34,8 +41,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/gipcompany/file_manipulator.
 
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

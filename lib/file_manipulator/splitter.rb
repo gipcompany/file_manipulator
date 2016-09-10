@@ -42,9 +42,9 @@ module FileManipulator
     end
 
     def output_file_name(index)
-      output_file_name = sprintf("#{basename}_%0#{number_of_digits}d", index)
+      output_file_basename = sprintf("#{basename}_%0#{number_of_digits}d", index)
 
-      "#{output_file_name}.#{extname}" unless extname == ''
+      extname == '' ? output_file_basename : "#{output_file_basename}.#{extname}"
     end
   end
 end
