@@ -1,7 +1,5 @@
 # FileManipulator
 
-TODO: Delete this and the text above, and describe your gem
-
 `FileManipulator` can split a text formatted file and merge them to one file (merge is TODO now).
 
 ## Installation
