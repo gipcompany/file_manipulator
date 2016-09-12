@@ -9,10 +9,21 @@ describe FileManipulator do
     end
   end
 
-  it "#split" do
-    file_name = 'Gemfile.lock'
-    FileManipulator.split(file_name, 'tmp', 1)
-    count = File.foreach(file_name).inject(0) { |_count| _count + 1 }
-    expect(files.count).to eq(count)
+  describe '#configure' do
+    before do
+      FileManipulator.configure do |config|
+        config.file_name = 'Gemfile.lock'
+        config.output_directory = 'tmp'
+        config.size = 1
+      end
+    end
+
+    it "configure can set the configuration values" do
+      splitter = FileManipulator::Splitter.new
+
+      expect(splitter.config.file_name).to eq('Gemfile.lock')
+      expect(splitter.config.output_directory).to eq('tmp')
+      expect(splitter.config.size).to eq(1)
+    end
   end
 end

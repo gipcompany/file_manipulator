@@ -1,11 +1,9 @@
 module FileManipulator
   class Splitter
-    attr_accessor :file_name, :output_directory, :size
+    attr_reader :config
 
-    def initialize(file_name, output_directory, size = 10_485_760)
-      @file_name = file_name
-      @output_directory = output_directory
-      @size = size
+    def initialize(config = FileManipulator.configuration)
+      @config = config
     end
 
     def run
@@ -13,7 +11,7 @@ module FileManipulator
 
       File.open(file_name, 'r') do |input|
         until input.eof?
-          File.open(File.join(output_directory, output_file_name(index)), 'w') do |output|
+          File.open(File.join(config.output_directory, output_file_name(index)), 'w') do |output|
             line = ""
 
             while output.size <= (size - line.length) && !input.eof?
@@ -37,6 +35,10 @@ module FileManipulator
       File.extname(file_name).delete('.')
     end
 
+    def file_name
+      config.file_name
+    end
+
     def number_of_digits
       @number_of_digits ||= Math.log10(File.size(file_name).to_f / size).ceil + 1
     end
@@ -45,6 +47,10 @@ module FileManipulator
       output_file_basename = sprintf("#{basename}_%0#{number_of_digits}d", index)
 
       extname == '' ? output_file_basename : "#{output_file_basename}.#{extname}"
+    end
+
+    def size
+      config.size
     end
   end
 end
