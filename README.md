@@ -26,7 +26,7 @@ require 'file_manipulator'
 
 FileManipulator.configure do |config|
   config.prefix = 'file_manipulator'
-  config.file_name = 'Gemfile.lock'
+  config.file_name = 'Gemfile'
   config.output_directory = 'tmp'
   config.size = 1
 end
