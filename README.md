@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 
-```
+```ruby
 require 'file_manipulator'
 
 FileManipulator.configure do |config|
