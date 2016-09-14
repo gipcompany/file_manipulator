@@ -12,6 +12,7 @@ describe FileManipulator do
   describe '#configure' do
     before do
       FileManipulator.configure do |config|
+        config.prefix = 'file_manipulator'
         config.file_name = 'Gemfile.lock'
         config.output_directory = 'tmp'
         config.size = 1

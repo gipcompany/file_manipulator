@@ -18,7 +18,7 @@ module FileManipulator
 
   module_function
 
-  def split(file_name, output_directory, size)
-    Splitter.new(file_name, output_directory, size).run
+  def split
+    Splitter.new.run
   end
 end

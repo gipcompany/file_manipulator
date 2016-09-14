@@ -16,6 +16,7 @@ module FileManipulator
 
     before do
       FileManipulator.configure do |config|
+        config.prefix = 'file_manipulator'
         config.file_name = File.join(Dir.pwd, 'tmp', "#{basename}.#{extname}")
         config.output_directory = File.join(Dir.pwd, 'tmp')
         config.size = 10
@@ -57,7 +58,7 @@ module FileManipulator
 
     it '#output_file_name' do
       index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("foo_000#{index}.txt")
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}.txt")
     end
 
     it '#size' do
