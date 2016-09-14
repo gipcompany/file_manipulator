@@ -56,9 +56,16 @@ module FileManipulator
       expect(splitter.send(:number_of_digits)).to eq(4)
     end
 
-    it '#output_file_name' do
-      index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}.txt")
+    describe '#output_file_name' do
+      it 'with extension' do
+        index = 1
+        expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}.txt")
+      end
+
+      it 'with no extension' do
+        pending 'TODO: '
+        expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}")
+      end
     end
 
     it '#size' do

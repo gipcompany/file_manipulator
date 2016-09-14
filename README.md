@@ -20,13 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
+
 ```
-irb(main):001:0> require 'file_manipulator'
-=> true
-irb(main):002:0> FileManipulator.split('Gemfile', 'tmp', 1)
-=> nil
-irb(main):003:0> Dir.entries('tmp')
-=> [".", "..", "Gemfile_0000", "Gemfile_0001", "Gemfile_0002", "Gemfile_0003"]
+require 'file_manipulator'
+
+FileManipulator.configure do |config|
+  config.prefix = 'file_manipulator'
+  config.file_name = 'Gemfile.lock'
+  config.output_directory = 'tmp'
+  config.size = 1
+end
+
+FileManipulator.split
+
+Dir.entries('tmp')
+#=> [".", "..", "file_manipulator_Gemfile_0000", "file_manipulator_Gemfile_0001", "file_manipulator_Gemfile_0002", "file_manipulator_Gemfile_0003"]
 ```
 
 ## Development
