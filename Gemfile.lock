@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    file_manipulator (0.0.3)
+    file_manipulator (0.0.4)
 
 GEM
   remote: https://rubygems.org/
