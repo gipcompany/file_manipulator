@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/gipcompany/file_manipulator.svg?branch=master_issue_3)](https://travis-ci.org/gipcompany/file_manipulator)
 [![Gem Version](https://badge.fury.io/rb/file_manipulator.svg)](https://badge.fury.io/rb/file_manipulator)
+[![Code Climate](https://codeclimate.com/github/gipcompany/file_manipulator/badges/gpa.svg)](https://codeclimate.com/github/gipcompany/file_manipulator)
+[![Test Coverage](https://codeclimate.com/github/gipcompany/file_manipulator/badges/coverage.svg)](https://codeclimate.com/github/gipcompany/file_manipulator/coverage)
 
 ## Installation
 
