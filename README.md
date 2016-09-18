@@ -6,6 +6,7 @@
 [![Gem Version](https://badge.fury.io/rb/file_manipulator.svg)](https://badge.fury.io/rb/file_manipulator)
 [![Code Climate](https://codeclimate.com/github/gipcompany/file_manipulator/badges/gpa.svg)](https://codeclimate.com/github/gipcompany/file_manipulator)
 [![Test Coverage](https://codeclimate.com/github/gipcompany/file_manipulator/badges/coverage.svg)](https://codeclimate.com/github/gipcompany/file_manipulator/coverage)
+[![CircleCI](https://circleci.com/gh/gipcompany/file_manipulator.svg?style=svg)](https://circleci.com/gh/gipcompany/file_manipulator)
 
 ## Installation
 
