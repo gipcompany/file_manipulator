@@ -3,6 +3,7 @@
 `FileManipulator` can split a text formatted file and merge them to one file (merge is TODO (#4) now).
 
 [![Build Status](https://travis-ci.org/gipcompany/file_manipulator.svg?branch=master_issue_3)](https://travis-ci.org/gipcompany/file_manipulator)
+[![Gem Version](https://badge.fury.io/rb/file_manipulator.svg)](https://badge.fury.io/rb/file_manipulator)
 
 ## Installation
 
