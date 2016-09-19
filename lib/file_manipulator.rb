@@ -1,4 +1,5 @@
 require "file_manipulator/splitter"
+require "file_manipulator/merger"
 require "file_manipulator/configuration"
 require "file_manipulator/version"
 
@@ -17,6 +18,10 @@ module FileManipulator
 
     def split
       Splitter.new.run
+    end
+
+    def merge
+      Merger.new.run
     end
   end
 end
