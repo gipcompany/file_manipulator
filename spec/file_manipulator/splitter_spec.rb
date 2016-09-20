@@ -59,9 +59,5 @@ module FileManipulator
       index = 1
       expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_0000#{index}")
     end
-
-    it '#size' do
-      expect(splitter.send(:size)).to eq(1000)
-    end
   end
 end
