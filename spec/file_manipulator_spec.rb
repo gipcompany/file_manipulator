@@ -14,7 +14,7 @@ describe FileManipulator do
       FileManipulator.configure do |config|
         config.prefix = 'file_manipulator'
         config.file_name = 'LICENSE.txt'
-        config.split_file_directory = 'tmp'
+        config.split_files_directory = 'tmp'
         config.size = 1
       end
     end
@@ -23,7 +23,7 @@ describe FileManipulator do
       configuration = FileManipulator.configuration
 
       expect(configuration.file_name).to eq('LICENSE.txt')
-      expect(configuration.split_file_directory).to eq('tmp')
+      expect(configuration.split_files_directory).to eq('tmp')
       expect(configuration.size).to eq(1)
     end
 
@@ -31,7 +31,7 @@ describe FileManipulator do
       configuration = FileManipulator.reset
 
       expect(configuration.file_name).to eq(nil)
-      expect(configuration.split_file_directory).to eq(nil)
+      expect(configuration.split_files_directory).to eq(nil)
       expect(configuration.size).to eq(nil)
     end
 

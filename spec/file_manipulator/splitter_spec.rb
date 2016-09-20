@@ -13,7 +13,7 @@ module FileManipulator
       FileManipulator.configure do |config|
         config.prefix = 'file_manipulator'
         config.file_name = dummy_txt.path
-        config.split_file_directory = File.join(Dir.pwd, 'tmp')
+        config.split_files_directory = File.join(Dir.pwd, 'tmp')
         config.size = 1000
       end
     end
