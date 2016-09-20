@@ -11,7 +11,7 @@ module FileManipulator
 
       File.open(file_name, 'r') do |input|
         until input.eof?
-          File.open(File.join(config.output_directory, output_file_name(index)), 'w') do |output|
+          File.open(File.join(config.split_file_directory, output_file_name(index)), 'w') do |output|
             line = ""
 
             while output.size <= (size - line.length) && !input.eof?
