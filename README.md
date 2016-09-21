@@ -8,6 +8,7 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/gipcompany/file_manipulator.svg)](https://gemnasium.com/github.com/gipcompany/file_manipulator)
 [![Code Climate](https://codeclimate.com/github/gipcompany/file_manipulator/badges/gpa.svg)](https://codeclimate.com/github/gipcompany/file_manipulator)
 [![Test Coverage](https://codeclimate.com/github/gipcompany/file_manipulator/badges/coverage.svg)](https://codeclimate.com/github/gipcompany/file_manipulator/coverage)
+[![Gem](https://img.shields.io/gem/dt/file_manipulator.svg)](https://rubygems.org/gems/file_manipulator)
 [![LICENSE](https://img.shields.io/badge/license-mit-blue.svg)](LICENSE.txt)
 
 ## Installation
