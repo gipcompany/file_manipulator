@@ -1,6 +1,6 @@
 # FileManipulator
 
-`FileManipulator` can split a text formatted file and merge them to one file (merge is TODO (#4) now).
+`FileManipulator` can split a text formatted file and merge them to one file.
 
 <!-- http://shields.io/ -->
 [![Build Status](https://travis-ci.org/gipcompany/file_manipulator.svg?branch=master_issue_3)](https://travis-ci.org/gipcompany/file_manipulator)
@@ -28,15 +28,15 @@ Or install it yourself as:
 
 ## Usage
 
-
 ```ruby
 require 'file_manipulator'
 
 FileManipulator.configure do |config|
   config.prefix = 'file_manipulator'
   config.file_name = 'Gemfile'
-  config.output_directory = 'tmp'
-  config.size = 1
+  config.split_files_directory = 'tmp'
+  config.merged_file_directory = 'tmp'
+  config.size = 10
 end
 
 FileManipulator.split

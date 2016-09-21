@@ -2,31 +2,24 @@ require "spec_helper"
 
 module FileManipulator
   describe Splitter do
-    let(:basename) { "foo" }
-    let(:extname) { "txt" }
-    let(:output_directory) { File.join(Dir.pwd, 'tmp') }
     let(:splitter) { Splitter.new }
-    let!(:file) do
-      path = File.join(Dir.pwd, 'tmp', "#{basename}.#{extname}")
-      _ = File.new(path, 'w')
-      _.write("123456789\n" * 1_000)
-      _.rewind
-      _
+
+    let!(:dummy_txt) do
+      path = File.join(Dir.pwd, 'spec/files/dummy.txt')
+      File.new(path)
     end
 
     before do
       FileManipulator.configure do |config|
         config.prefix = 'file_manipulator'
-        config.file_name = File.join(Dir.pwd, 'tmp', "#{basename}.#{extname}")
-        config.output_directory = File.join(Dir.pwd, 'tmp')
-        config.size = 10
+        config.file_name = dummy_txt.path
+        config.split_files_directory = File.join(Dir.pwd, 'tmp')
+        config.size = 1000
       end
     end
 
     after do
-      Dir::glob(File.join(output_directory, "*.#{extname}")).each do |_file|
-        File.delete(_file)
-      end
+      Dir::glob(File.join(File.join(Dir.pwd, 'tmp'), "file_manipulator_*")).each { |_| File.delete(_) }
     end
 
     it '#initialize' do
@@ -37,39 +30,34 @@ module FileManipulator
       count = Dir.entries('tmp').count
       splitter.run
       count_diff = Dir.entries('tmp').count - count
-      expect(count_diff).to eq(1000)
+      expect(count_diff).to eq(5955)
     end
 
     it '#basename' do
-      expect(splitter.send(:basename)).to eq(basename)
+      expect(splitter.send(:basename)).to eq('dummy')
     end
 
     it '#extname' do
-      expect(splitter.send(:extname)).to eq(extname)
+      expect(splitter.send(:extname)).to eq('txt')
     end
 
     it '#file_name' do
-      expect(splitter.send(:file_name)).to eq(file.path)
+      expect(splitter.send(:file_name)).to eq(dummy_txt.path)
     end
 
     it '#number_of_digits' do
-      expect(splitter.send(:number_of_digits)).to eq(4)
+      expect(splitter.send(:number_of_digits)).to eq(5)
     end
 
-    describe '#output_file_name' do
-      it 'with extension' do
-        index = 1
-        expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}.txt")
-      end
-
-      it 'with no extension' do
-        pending 'TODO: '
-        expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_foo_000#{index}")
-      end
+    it '#output_file_name, with extension' do
+      index = 1
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_0000#{index}.txt")
     end
 
-    it '#size' do
-      expect(splitter.send(:size)).to eq(10)
+    it '#output_file_name, with no extension' do
+      splitter.config.file_name = File.join(Dir.pwd, 'spec/files/dummy')
+      index = 1
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_0000#{index}")
     end
   end
 end
