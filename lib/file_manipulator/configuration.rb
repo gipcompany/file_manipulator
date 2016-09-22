@@ -4,6 +4,9 @@ module FileManipulator
 
     def initialize
       @prefix ||= 'file_manipulator'
+      @split_files_directory = 'tmp'
+      @merged_file_directory = 'tmp'
+      @size ||= 10_485_760
     end
   end
 end
