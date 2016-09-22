@@ -1,23 +1,22 @@
 require "spec_helper"
 
 describe FileManipulator do
-  let(:files) { Dir.entries('tmp') - [".", "..", ".keep"] }
-  let!(:dummy_txt) do
-    path = File.join(Dir.pwd, 'spec/files/dummy.txt')
-    File.new(path)
-  end
-  let(:tmp_dir) { File.join(Dir.pwd, 'tmp') }
-
-  after do
-    files.each do |_|
-      File.delete(File.join('tmp', _))
-    end
-  end
-
   describe 'class methods' do
+    let(:files) { Dir.entries('tmp') - [".", "..", ".keep"] }
+    let!(:dummy_txt) do
+      path = File.join(Dir.pwd, 'spec/files/dummy.txt')
+      File.new(path)
+    end
+    let(:tmp_dir) { File.join(Dir.pwd, 'tmp') }
+
+    after do
+      files.each do |_|
+        File.delete(File.join('tmp', _))
+      end
+    end
+
     before do
       FileManipulator.configure do |config|
-        config.prefix = 'file_manipulator'
         config.file_name = dummy_txt.path
         config.split_files_directory = tmp_dir
         config.merged_file_directory = tmp_dir
@@ -37,8 +36,9 @@ describe FileManipulator do
       configuration = FileManipulator.reset
 
       expect(configuration.file_name).to eq(nil)
-      expect(configuration.split_files_directory).to eq(nil)
-      expect(configuration.size).to eq(nil)
+      expect(configuration.split_files_directory).to eq('tmp')
+      expect(configuration.merged_file_directory).to eq('tmp')
+      expect(configuration.size).to eq(10_485_760)
     end
 
     it ".split" do

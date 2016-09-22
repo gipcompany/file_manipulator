@@ -11,7 +11,6 @@ module FileManipulator
 
     before do
       FileManipulator.configure do |config|
-        config.prefix = 'file_manipulator'
         config.file_name = dummy_txt.path
         config.split_files_directory = File.join(Dir.pwd, 'tmp')
         config.merged_file_directory = File.join(Dir.pwd, 'tmp')
