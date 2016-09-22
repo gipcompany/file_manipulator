@@ -32,6 +32,7 @@ Or install it yourself as:
 Run the following Rails' generate command which will generate customizable initializer `config/initializers/file_manipulator.rb`.
 
     $ rails generate file_manipulator:install
+          create  config/initializers/file_manipulator.rb
 
 ## Usage
 
