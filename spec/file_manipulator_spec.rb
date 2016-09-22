@@ -1,20 +1,20 @@
 require "spec_helper"
 
 describe FileManipulator do
-  let(:files) { Dir.entries('tmp') - [".", "..", ".keep"] }
-  let!(:dummy_txt) do
-    path = File.join(Dir.pwd, 'spec/files/dummy.txt')
-    File.new(path)
-  end
-  let(:tmp_dir) { File.join(Dir.pwd, 'tmp') }
-
-  after do
-    files.each do |_|
-      File.delete(File.join('tmp', _))
-    end
-  end
-
   describe 'class methods' do
+    let(:files) { Dir.entries('tmp') - [".", "..", ".keep"] }
+    let!(:dummy_txt) do
+      path = File.join(Dir.pwd, 'spec/files/dummy.txt')
+      File.new(path)
+    end
+    let(:tmp_dir) { File.join(Dir.pwd, 'tmp') }
+
+    after do
+      files.each do |_|
+        File.delete(File.join('tmp', _))
+      end
+    end
+
     before do
       FileManipulator.configure do |config|
         config.prefix = 'file_manipulator'

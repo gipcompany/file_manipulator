@@ -30,7 +30,7 @@ module FileManipulator
       count = Dir.entries('tmp').count
       splitter.run
       count_diff = Dir.entries('tmp').count - count
-      expect(count_diff).to eq(5955)
+      expect(count_diff).to eq(61)
     end
 
     it '#basename' do
@@ -46,18 +46,18 @@ module FileManipulator
     end
 
     it '#number_of_digits' do
-      expect(splitter.send(:number_of_digits)).to eq(5)
+      expect(splitter.send(:number_of_digits)).to eq(3)
     end
 
     it '#output_file_name, with extension' do
       index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_0000#{index}.txt")
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_00#{index}.txt")
     end
 
     it '#output_file_name, with no extension' do
       splitter.config.file_name = File.join(Dir.pwd, 'spec/files/dummy')
       index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_0000#{index}")
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_00#{index}")
     end
   end
 end

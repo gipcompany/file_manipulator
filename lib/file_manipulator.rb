@@ -8,8 +8,11 @@ module FileManipulator
     attr_accessor :configuration
 
     def configure
-      @configuration ||= Configuration.new
-      yield(configuration)
+      yield(@configuration ||= Configuration.new)
+    end
+
+    def merge
+      Merger.new.run
     end
 
     def reset
@@ -18,10 +21,6 @@ module FileManipulator
 
     def split
       Splitter.new.run
-    end
-
-    def merge
-      Merger.new.run
     end
   end
 end
