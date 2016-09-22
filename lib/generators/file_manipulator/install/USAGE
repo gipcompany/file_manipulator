@@ -1,0 +1,8 @@
+Description:
+    Creates file_manipulator's initializer
+
+Example:
+    rails generate file_manipulator:install
+
+    This will create:
+        config/initializers/file_manipulator.rb
