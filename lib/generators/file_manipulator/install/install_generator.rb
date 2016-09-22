@@ -3,8 +3,8 @@ module FileManipulator
     class InstallGenerator < ::Rails::Generators::Base
       source_root File.expand_path('../templates', __FILE__)
 
-      def copy_initializer_file
-        copy_file "initializer.rb", "config/initializers/file_manipulator.rb"
+      def copy_initializer_file(destination_path = 'config/initializers/file_manipulator.rb')
+        copy_file 'initializer.rb', destination_path
       end
     end
   end
