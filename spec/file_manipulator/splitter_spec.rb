@@ -29,7 +29,7 @@ module FileManipulator
       count = Dir.entries('tmp').count
       splitter.run
       count_diff = Dir.entries('tmp').count - count
-      expect(count_diff).to eq(61)
+      expect(count_diff).to eq(50)
     end
 
     it '#basename' do
