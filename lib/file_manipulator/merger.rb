@@ -10,7 +10,7 @@ module FileManipulator
       string_io = StringIO.new
 
       Dir.glob("#{config.split_files_directory}/#{config.prefix}_*").sort.each do |file|
-        string_io.puts File.read(file)
+        string_io.write File.read(file)
       end
 
       File.write(merged_file, string_io.string)

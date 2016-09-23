@@ -12,11 +12,11 @@ module FileManipulator
       File.open(file_name, 'r') do |input|
         until input.eof?
           File.open(File.join(config.split_files_directory, output_file_name(index)), 'w') do |output|
-            line = ""
+            content = ""
 
-            while output.size <= (config.size - line.length) && !input.eof?
-              line = input.readline
-              output << line
+            while output.size <= (config.size - content.length) && !input.eof?
+              content = input.read(config.size)
+              output << content
             end
           end
 
