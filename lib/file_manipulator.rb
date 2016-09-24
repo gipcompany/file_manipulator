@@ -15,10 +15,6 @@ module FileManipulator
       Merger.new.run
     end
 
-    def reset
-      @configuration = Configuration.new
-    end
-
     def split
       Splitter.new.run
     end

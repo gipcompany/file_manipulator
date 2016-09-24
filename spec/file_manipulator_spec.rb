@@ -32,15 +32,6 @@ describe FileManipulator do
       expect(configuration.size).to eq(1000)
     end
 
-    it ".reset" do
-      configuration = FileManipulator.reset
-
-      expect(configuration.file_name).to eq(nil)
-      expect(configuration.split_files_directory).to eq('tmp')
-      expect(configuration.merged_file_directory).to eq('tmp')
-      expect(configuration.size).to eq(10_485_760)
-    end
-
     it ".split" do
       FileManipulator.split
       splitted_files = Dir.glob("tmp/*.txt")
