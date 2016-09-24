@@ -13,7 +13,7 @@ module FileManipulator
       FileManipulator.configure do |config|
         config.file_name = dummy_txt.path
         config.split_files_directory = File.join(Dir.pwd, 'tmp')
-        config.size = 1000
+        config.size = 10
       end
     end
 
@@ -29,7 +29,7 @@ module FileManipulator
       count = Dir.entries('tmp').count
       splitter.run
       count_diff = Dir.entries('tmp').count - count
-      expect(count_diff).to eq(50)
+      expect(count_diff).to eq(1000)
     end
 
     it '#basename' do
