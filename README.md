@@ -1,6 +1,6 @@
 # FileManipulator
 
-`FileManipulator` can split a text formatted file and merge them to one file.
+`FileManipulator` can split a text formatted file into multiple files, and recover the original file by merging the splitted files.
 
 <!-- http://shields.io/ -->
 [![Build Status](https://travis-ci.org/gipcompany/file_manipulator.svg?branch=master_issue_3)](https://travis-ci.org/gipcompany/file_manipulator)
