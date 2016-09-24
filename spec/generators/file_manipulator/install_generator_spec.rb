@@ -10,7 +10,7 @@ module FileManipulator
       end
 
       it '#copy_initializer_file' do
-        subject.copy_initializer_file('tmp/config/initializers/file_manipulator.rb')
+        subject.copy_initializer('tmp/config/initializers/file_manipulator.rb')
       end
     end
   end
