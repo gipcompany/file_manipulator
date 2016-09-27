@@ -8,9 +8,5 @@ module FileManipulator
       @merged_file_directory = 'tmp'
       @size ||= 10_485_760
     end
-
-    def directories
-      [split_files_directory, merged_file_directory]
-    end
   end
 end
