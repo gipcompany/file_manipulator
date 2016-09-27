@@ -41,8 +41,12 @@ module FileManipulator
 
     def output_file_name(index)
       output_file_basename = sprintf("#{basename}_%0#{number_of_digits}d", index)
-      output_file_basename = "#{config.prefix}_#{output_file_basename}" unless config.prefix == ''
+      output_file_basename = "#{prefix}_#{output_file_basename}" unless prefix == ''
       extname == '' ? output_file_basename : "#{output_file_basename}.#{extname}"
+    end
+
+    def prefix
+      config.prefix
     end
   end
 end
