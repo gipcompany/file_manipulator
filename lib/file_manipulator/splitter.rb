@@ -8,11 +8,12 @@ module FileManipulator
 
     def run
       index = 0
+      encoding = File.read(file_name).encoding.to_s
 
       File.open(file_name, 'r') do |input|
         until input.eof?
           File.open(File.join(config.split_files_directory, output_file_name(index)), 'w') do |output|
-            output << input.read(config.size)
+            output << input.read(config.size).force_encoding(encoding)
           end
 
           index += 1
