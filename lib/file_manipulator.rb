@@ -9,6 +9,8 @@ module FileManipulator
 
     def configure
       yield(@configuration ||= Configuration.new)
+      FileUtils.mkdir_p(configuration.split_files_directory)
+      FileUtils.mkdir_p(configuration.merged_file_directory)
     end
 
     def merge

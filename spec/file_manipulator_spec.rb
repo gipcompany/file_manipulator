@@ -8,8 +8,13 @@ describe FileManipulator do
       File.new(path)
     end
     let(:tmp_dir) { File.join(Dir.pwd, 'tmp') }
+    let(:split_files_directory) { 'tmp/split_files_directory' }
+    let(:merged_file_directory) { 'tmp/merged_file_directory' }
 
     after do
+      FileUtils.rmdir(split_files_directory)
+      FileUtils.rmdir(merged_file_directory)
+
       files.each do |_|
         File.delete(File.join('tmp', _))
       end
@@ -22,6 +27,18 @@ describe FileManipulator do
         config.merged_file_directory = tmp_dir
         config.size = 1000
       end
+    end
+
+    it '.configure' do
+      FileManipulator.configure do |config|
+        config.file_name = dummy_txt.path
+        config.split_files_directory = split_files_directory
+        config.merged_file_directory = merged_file_directory
+        config.size = 1000
+      end
+
+      expect(Dir.exist?(split_files_directory)).to eq(true)
+      expect(Dir.exist?(merged_file_directory)).to eq(true)
     end
 
     it ".configuration" do
