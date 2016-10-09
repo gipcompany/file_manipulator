@@ -45,18 +45,24 @@ module FileManipulator
     end
 
     it '#number_of_digits' do
-      expect(splitter.send(:number_of_digits)).to eq(3)
+      expect(splitter.send(:number_of_digits)).to eq(4)
     end
 
     it '#output_file_name, with extension' do
       index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_00#{index}.txt")
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_000#{index}.txt")
     end
 
     it '#output_file_name, with no extension' do
       splitter.config.file_name = File.join(Dir.pwd, 'spec/files/dummy')
       index = 1
-      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_00#{index}")
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_000#{index}")
+    end
+
+    it 'When size in config is too larger than one of the file, split file name for index 0 should suffixed with _0.' do
+      splitter.config.size = 10485760
+      index = 0
+      expect(splitter.send(:output_file_name, index)).to eq("file_manipulator_dummy_#{index}.txt")
     end
   end
 end

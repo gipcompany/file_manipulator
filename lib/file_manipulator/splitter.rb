@@ -36,7 +36,7 @@ module FileManipulator
     end
 
     def number_of_digits
-      @number_of_digits ||= Math.log10(File.size(file_name).to_f / config.size).ceil
+      @number_of_digits ||= (File.size(file_name).to_f / config.size).ceil.to_s.size
     end
 
     def output_file_name(index)
